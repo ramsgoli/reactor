@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server",
+    "dashboard": "webpack-dashboard -- webpack-dev-server"
   },
   "author": "",
   "license": "ISC",
@@ -24,6 +25,7 @@
     "react-dom": "^15.6.1",
     "webpack": "^3.4.1",
     "webpack-combine-loaders": "^2.0.3",
+    "webpack-dashboard": "^0.4.0",
     "webpack-dev-server": "^2.6.1"
   }
 }
