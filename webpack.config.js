@@ -1,5 +1,6 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     context: path.resolve(__dirname, 'src'),
@@ -13,6 +14,22 @@ module.exports = {
             {
                 test: /\.js$/,
                 loader: 'babel-loader'
+            },
+            {
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                modules: true,
+                                minimize: true,
+                                localIdentName: '[name]__[local]___[hash:base64:5]',
+                                importLoaders: 1
+                            }
+                        }
+                    ]
+                })
             }
         ]
     },
@@ -22,6 +39,7 @@ module.exports = {
                 'NODE_ENV': JSON.stringify('production')
             }
         }),
+        new ExtractTextPlugin('build/bundle.css')
     ],
     resolve: {
         modules: [path.resolve(__dirname, 'src'), 'node_modules']
