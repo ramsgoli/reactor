@@ -2,6 +2,10 @@
 
 My go-to config for react projects
 
+## Features
+* modular css
+* babel-env
+
 ## Usage
 
 #### development
